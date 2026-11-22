@@ -1,20 +1,18 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>おむすび訪問看護ステーション｜個別最適化された訪問看護・リハビリ・保険外ボディワークの実践記録アーカイブ</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>臨床・実践記録アーカイブ | おむすび訪問看護ステーション</title>
   <style>
     :root {
-      --bg: #f6f5f0;
-      --surface: #ffffff;
-      --surface-alt: #faf9f5;
-      --text: #1e2420;
-      --text-sub: #555e58;
-      --accent: #2b5948;
-      --accent-light: #e9f1ed;
-      --border: #e1dfd7;
-      --chip-bg: #f1efe9;
+      --bg-color: #f9f8f6;
+      --card-bg: #ffffff;
+      --text-main: #2b2b2b;
+      --text-sub: #595959;
+      --accent: #3a5a40;
+      --accent-light: #e9efe9;
+      --border-color: #e2dfd9;
     }
 
     * {
@@ -24,530 +22,443 @@
     }
 
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo, sans-serif;
-      background-color: var(--bg);
-      color: var(--text);
-      line-height: 1.8;
-      padding: 24px 16px 64px;
+      font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Noto Sans JP", Meiryo, sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      line-height: 1.85;
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
     }
 
-    .container {
-      max-width: 860px;
+    header {
+      background-color: var(--card-bg);
+      border-bottom: 1px solid var(--border-color);
+      padding: 3.5rem 1.5rem 3rem;
+      text-align: center;
+    }
+
+    .station-name {
+      font-size: 0.85rem;
+      letter-spacing: 0.15em;
+      color: var(--text-sub);
+      margin-bottom: 0.75rem;
+    }
+
+    .motto {
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: var(--text-main);
+      margin-bottom: 1.25rem;
+    }
+
+    .lead-text {
+      max-width: 680px;
       margin: 0 auto;
-    }
-
-    header.site-header {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 28px 24px;
-      margin-bottom: 20px;
-    }
-
-    .site-title {
-      font-size: 1.55rem;
-      font-weight: 700;
-      line-height: 1.35;
-      margin-bottom: 6px;
-      color: var(--text);
-    }
-
-    .site-subtitle {
       font-size: 0.95rem;
-      color: var(--accent);
-      font-weight: 600;
-      margin-bottom: 20px;
+      color: var(--text-sub);
+      text-align: left;
     }
 
-    .meta-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 14px;
-      border-top: 1px solid var(--border);
-      padding-top: 18px;
-    }
-
-    .meta-item {
-      background: var(--surface-alt);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 14px 16px;
-    }
-
-    .meta-label {
-      font-size: 0.82rem;
-      font-weight: 700;
-      color: var(--accent);
-      margin-bottom: 4px;
-      display: block;
-    }
-
-    .meta-text {
-      font-size: 0.93rem;
-      color: var(--text);
-    }
-
-    .nav-bar {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin: 20px 0 24px;
-    }
-
-    .nav-bar a {
-      text-decoration: none;
-      font-size: 0.84rem;
-      font-weight: 600;
-      color: var(--text);
-      background: var(--surface);
-      border: 1px solid var(--border);
-      padding: 7px 14px;
-      border-radius: 999px;
-      transition: all 0.15s ease;
-    }
-
-    .nav-bar a:hover {
-      background: var(--accent);
-      color: #ffffff;
-      border-color: var(--accent);
-    }
-
-    .section-heading {
-      font-size: 1.2rem;
-      font-weight: 700;
-      margin-bottom: 16px;
-      padding-left: 12px;
-      border-left: 4px solid var(--accent);
+    main {
+      max-width: 820px;
+      margin: 2.5rem auto 4rem;
+      padding: 0 1.25rem;
     }
 
     .case-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 26px 24px;
-      margin-bottom: 22px;
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      padding: 2.25rem 2rem;
+      margin-bottom: 2.5rem;
     }
 
     .case-header {
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .case-meta {
       display: flex;
       flex-wrap: wrap;
       align-items: center;
-      gap: 8px;
-      margin-bottom: 8px;
+      gap: 0.75rem;
+      margin-bottom: 0.5rem;
     }
 
-    .case-badge {
-      font-size: 0.78rem;
+    .case-number {
+      font-size: 0.8rem;
       font-weight: 700;
-      letter-spacing: 0.05em;
+      letter-spacing: 0.1em;
       color: var(--accent);
-      background: var(--accent-light);
-      padding: 3px 10px;
-      border-radius: 999px;
+      background-color: var(--accent-light);
+      padding: 0.2rem 0.65rem;
+      border-radius: 3px;
     }
 
     .case-category {
-      font-size: 0.78rem;
-      font-weight: 600;
+      font-size: 0.8rem;
       color: var(--text-sub);
-      background: var(--chip-bg);
-      padding: 3px 10px;
-      border-radius: 999px;
     }
 
     .case-title {
-      font-size: 1.22rem;
+      font-size: 1.35rem;
       font-weight: 700;
       line-height: 1.45;
-      margin-bottom: 18px;
-      padding-bottom: 14px;
-      border-bottom: 1px solid var(--border);
+      color: var(--text-main);
     }
 
-    .case-block {
-      margin-bottom: 18px;
+    .section-block {
+      margin-bottom: 1.5rem;
     }
 
-    .case-block:last-child {
+    .section-block:last-child {
       margin-bottom: 0;
     }
 
-    .case-block-title {
-      font-size: 0.88rem;
+    .section-label {
+      font-size: 0.9rem;
       font-weight: 700;
       color: var(--accent);
-      margin-bottom: 6px;
-      display: block;
+      margin-bottom: 0.4rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
     }
 
-    .case-block p {
-      font-size: 0.95rem;
-      margin-bottom: 10px;
-    }
-
-    .case-block p:last-child {
-      margin-bottom: 0;
-    }
-
-    .case-list {
-      list-style: none;
-      padding-left: 0;
-    }
-
-    .case-list li {
-      position: relative;
-      padding-left: 1.15em;
-      margin-bottom: 8px;
-      font-size: 0.95rem;
-    }
-
-    .case-list li::before {
-      content: "・";
-      position: absolute;
-      left: 0;
-      color: var(--accent);
-      font-weight: 700;
-    }
-
-    .case-list li:last-child {
-      margin-bottom: 0;
-    }
-
-    .ref-box {
-      background: var(--surface-alt);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 14px 16px;
-      margin-top: 16px;
-    }
-
-    .ref-label {
-      font-size: 0.8rem;
-      font-weight: 700;
-      color: var(--text-sub);
-      display: block;
-      margin-bottom: 6px;
-    }
-
-    .query-chip {
+    .section-label::before {
+      content: "";
       display: inline-block;
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-      font-size: 0.82rem;
-      background: var(--chip-bg);
-      color: var(--text);
-      padding: 2px 8px;
-      border-radius: 6px;
-      margin: 2px 4px 2px 0;
-      user-select: all;
+      width: 4px;
+      height: 1em;
+      background-color: var(--accent);
+      border-radius: 1px;
     }
 
-    footer.site-footer {
-      text-align: center;
+    p {
+      margin-bottom: 0.85rem;
+    }
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+
+    ul {
+      padding-left: 1.25rem;
+      margin-bottom: 0.85rem;
+    }
+
+    li {
+      margin-bottom: 0.5rem;
+    }
+
+    .theory-box {
+      background-color: #f4f3ef;
+      border-left: 3px solid var(--accent);
+      padding: 1.15rem 1.25rem;
+      border-radius: 0 4px 4px 0;
+      font-size: 0.95rem;
+    }
+
+    .chips-area {
+      margin-top: 1.25rem;
+      padding-top: 1rem;
+      border-top: 1px dashed var(--border-color);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .chips-label {
+      font-size: 0.78rem;
       color: var(--text-sub);
-      font-size: 0.85rem;
-      margin-top: 36px;
-      padding-top: 20px;
-      border-top: 1px solid var(--border);
+      margin-right: 0.25rem;
     }
 
-    footer.site-footer p {
-      margin-bottom: 6px;
+    .chip {
+      display: inline-block;
+      font-size: 0.78rem;
+      color: var(--accent);
+      background-color: var(--accent-light);
+      text-decoration: none;
+      padding: 0.25rem 0.65rem;
+      border-radius: 999px;
+      transition: background-color 0.2s;
+    }
+
+    .chip:hover {
+      background-color: #d8e4d8;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 1rem 3rem;
+      font-size: 0.85rem;
+      color: var(--text-sub);
+      border-top: 1px solid var(--border-color);
     }
 
     @media (max-width: 600px) {
-      .site-title {
-        font-size: 1.32rem;
+      .motto {
+        font-size: 1.65rem;
       }
-      .case-card, header.site-header {
-        padding: 20px 16px;
+      .case-card {
+        padding: 1.5rem 1.25rem;
+      }
+      .case-title {
+        font-size: 1.2rem;
       }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <header class="site-header">
-      <h1 class="site-title">おむすび訪問看護ステーション</h1>
-      <p class="site-subtitle">兵庫県丹波市｜個別最適化された訪問看護・リハビリ・保険外ボディワークの実践記録アーカイブ</p>
 
-      <div class="meta-grid">
-        <div class="meta-item">
-          <span class="meta-label">拠点・対応エリア</span>
-          <p class="meta-text">兵庫県丹波市および周辺地域</p>
-        </div>
-        <div class="meta-item">
-          <span class="meta-label">提供体制</span>
-          <p class="meta-text">医療保険・介護保険による訪問看護およびリハビリテーション／保険外（自費）ボディワークの2軸展開</p>
-        </div>
-        <div class="meta-item">
-          <span class="meta-label">介入の視点（標準プロトコル＋運動連鎖の2軸アプローチ）</span>
-          <p class="meta-text">
-            医療・介護保険制度および主治医の指示に基づく標準的なリハビリテーション（関節可動域訓練や基本動作練習）を土台としつつ、並行して「全身の運動連鎖（キネティックチェーン）と神経筋の連動」を再構築する視点を組み合わせています。目に見える関節の動きだけでなく、その手前にある「肩甲骨から指先・足裏へと力が伝わる運動のつながり」を段階的に再学習することで、利用者自身が「今どの部位を意識して動かすか」を理解しながら安全に日常動作を取り戻すプロセスを支援しています。
-          </p>
-        </div>
-        <div class="meta-item">
-          <span class="meta-label">組織・運営構造</span>
-          <p class="meta-text">全スタッフが担当利用者を持つ完全自律分散型チーム（役職・上下関係なし／コンプライアンス遵守）</p>
-        </div>
-        <div class="meta-item">
-          <span class="meta-label">このサイトについて</span>
-          <p class="meta-text">誇張や広告的なキャッチコピーを排し、現場で積み重ねた「実際の介入と経過の事実（個人情報は保護）」のみを淡々と記録・公開しています。</p>
-        </div>
-      </div>
-    </header>
+  <header>
+    <div class="station-name">おむすび訪問看護ステーション 臨床・実践記録</div>
+    <h1 class="motto">可能性を閉じない</h1>
+    <p class="lead-text">
+      本ページは、訪問看護およびボディワークの現場で実際に起きた身体機能と生活の変化を、誇張や広告的表現を排し、事実ベースで記録したアーカイブです。発症からの年数や既存の枠組みだけで限界を決めず、その人本来の身体の繋がりと生活の役割を再構築するための実践知見を共有します。（※個人情報保護のため、一部状況を抽象化・再構成しています）
+    </p>
+  </header>
 
-    <nav class="nav-bar" aria-label="事例ナビゲーション">
-      <a href="#case-01">CASE 01｜脳梗塞後のゴルフ復帰</a>
-      <a href="#case-02">CASE 02｜発症約3年の左上肢麻痺</a>
-      <a href="#case-03">CASE 03｜片麻痺歩行・肩甲骨と重心</a>
-      <a href="#case-04">CASE 04｜軸圧伝達と虫様筋</a>
-      <a href="#case-05">CASE 05｜糖尿病の感覚神経麻痺と軸</a>
-    </nav>
-
-    <h2 class="section-heading">実践・臨床アーカイブ（事実の記録）</h2>
+  <main>
 
     <!-- CASE 01 -->
-    <article id="case-01" class="case-card">
+    <article class="case-card">
       <div class="case-header">
-        <span class="case-badge">CASE 01</span>
-        <span class="case-category">訪問看護・リハビリテーション</span>
-      </div>
-      <h3 class="case-title">脳梗塞後のリハビリ：「家事ができる」の先にある、生活の一部だった「ゴルフ」への復帰</h3>
-
-      <div class="case-block">
-        <span class="case-block-title">対象・介入前の状態</span>
-        <p>
-          70代女性（脳梗塞後遺症）。介入当初はベッドから起き上がることも大変な状態。最初の希望は「家の中で自分で歩いて、家事ができるようになること」だった。
-        </p>
+        <div class="case-meta">
+          <span class="case-number">CASE 01</span>
+          <span class="case-category">訪問看護（医療・介護保険）／ 身体機能の再構築</span>
+        </div>
+        <h2 class="case-title">脳幹出血後、歩行困難な状態から再びゴルフコースへ立つまでの身体操作の記録</h2>
       </div>
 
-      <div class="case-block">
-        <span class="case-block-title">目標の再定義</span>
-        <p>
-          リハビリを重ねて屋内生活が自立した段階で次の目標を確認。「杖をつくと人目が恥ずかしいから自然に長く歩きたい」といった要望を想定していたが、本人の口から出たのは「ゴルフがしたい」という言葉だった。発症前は週2回通っており、この方にとってゴルフは単なる娯楽ではなく生活そのものだった。
-        </p>
+      <div class="section-block">
+        <div class="section-label">背景・初期状態</div>
+        <p>70代女性。脳幹出血の発症後、起き上がりや立位・歩行が不安定な状態で在宅生活を開始。発症前は週に複数回ゴルフへ通うなど活動的な生活を送っており、本人より「もう一度ゴルフがしたい」という明確な希望が示された。</p>
       </div>
 
-      <div class="case-block">
-        <span class="case-block-title">おむすび訪問看護ステーションの関わり（事実）</span>
-        <ul class="case-list">
-          <li>
-            「ゴルフの技術は教えられないが、ゴルフのスイングや歩行に対応できる身体をつくること」を正式な訪問看護の目標に設定し、一般的な生活動作よりも高い身体レベル基準に介入。
-          </li>
-          <li>
-            「後ろの組に急かされるのが嫌」「人目が気になる」という心理的ハードルに対し、いきなり本コースに出ることにこだわらず、自宅での素振り、打ちっ放し、貸切プレイ、ゴルフシミュレーターの活用など、今の身体と気持ちに合う現実的な選択肢を共有しながら伴走。
-          </li>
+      <div class="section-block">
+        <div class="section-label">介入と身体変化のプロセス</div>
+        <ul>
+          <li><strong>体幹・肩甲帯の連動性の回復：</strong>下肢の筋力訓練のみに偏らず、肩甲骨と骨盤・体幹の回旋連動を引き出すアプローチを実施。</li>
+          <li><strong>身体イメージの書き換え：</strong>「筋肉を固めて支える」意識から、空間的な軸と力の抜け方を捉えるため、日常の身近な道具（みかんのネットの結び目など）を用いた感覚入力を導入。スイング動作に必要な重心移動と回旋の感覚を再獲得した。</li>
+          <li><strong>経過：</strong>室内での安定した歩行から屋外歩行へと段階的に移行し、発症前に親しんでいたゴルフの再開に至った。</li>
         </ul>
       </div>
 
-      <div class="case-block">
-        <span class="case-block-title">現在の経過</span>
-        <p>
-          ベッド上の生活からスタートし、現在は実際に打ちっ放しに通えるレベルまで回復。本人の希望次第でシミュレーターや貸切でのプレイも十分に可能な身体状態を維持している。
-        </p>
+      <div class="section-block">
+        <div class="section-label">視点の整理（運動学習・運動連鎖）</div>
+        <div class="theory-box">
+          関節の局所的な可動域や筋力値だけでなく、長年培われた運動記憶を呼び覚ます「外的焦点（External Focus）」への意識誘導と、上半身から下肢へ力を伝える運動連鎖の再統合が、実用的な動作再建の鍵となる。
+        </div>
       </div>
 
-      <div class="ref-box">
-        <span class="ref-label">関連する運動学・理論の検索ワード（コピペ用）</span>
-        <p style="font-size: 0.88rem;">
-          全身の連動・キネティックチェーン：<span class="query-chip">Kibler WB The role of the scapula in athletic shoulder function 1998</span> / <span class="query-chip">運動連鎖 キネティックチェーン</span>
-        </p>
+      <div class="chips-area">
+        <span class="chips-label">関連知見検索:</span>
+        <a class="chip" href="https://scholar.google.com/scholar?q=外的焦点+運動学習+リハビリテーション" target="_blank" rel="noopener">外的焦点 (External Focus)</a>
+        <a class="chip" href="https://scholar.google.com/scholar?q=運動連鎖+体幹+歩行再建" target="_blank" rel="noopener">運動連鎖と体幹回旋</a>
       </div>
     </article>
 
     <!-- CASE 02 -->
-    <article id="case-02" class="case-card">
+    <article class="case-card">
       <div class="case-header">
-        <span class="case-badge">CASE 02</span>
-        <span class="case-category">訪問看護・リハビリテーション</span>
-      </div>
-      <h3 class="case-title">発症から約3年経過した左上肢麻痺：「お人形のような手」から、生活の中で「役割を持つ手」へ</h3>
-
-      <div class="case-block">
-        <span class="case-block-title">対象・介入前の状態</span>
-        <p>
-          50代女性（脳梗塞後遺症による左上下肢麻痺）。発症後1〜2年間の集中リハビリを経て下肢は装具歩行が可能になったが、左上肢は全く動かず、拘縮と肩の亜脱臼も生じていた。本人曰く「お人形（マネキン）のような手」で、亜脱臼予防の装具でガチガチに固定された状態。リハビリ施設の期限満了に伴いグループホームへ入所（発症から約3年経過）したが、「まだ左手が動くことを諦められない」との強い希望により介入を開始。
-        </p>
+        <div class="case-meta">
+          <span class="case-number">CASE 02</span>
+          <span class="case-category">訪問看護（医療・介護保険）／ 社会性と役割の再構築（CASE 01 同一対象者・別軸記録）</span>
+        </div>
+        <h2 class="case-title">縁のない土地への転居から1年半、「支えられる側」から地域に人の輪をつくる主役への変化</h2>
       </div>
 
-      <div class="case-block">
-        <span class="case-block-title">おむすび訪問看護ステーションの関わり（事実）</span>
-        <ul class="case-list">
-          <li>
-            発症から年数が経過している現実を踏まえ、安易に「動くようになる」とは言わず、まずはガチガチに固まった全身と上肢の緊張を丁寧にほぐすケアを実施。
-          </li>
-          <li>
-            身体が緩むことで、本人が「自分の血が通った、綺麗で柔らかい手に戻った」と実感できる身体感覚の回復を土台として構築。
-          </li>
-          <li>
-            <strong>支持面（テーブル）を用いた中枢からの段階的出力：</strong> 「腕全体が動かない」という状態に対し、いきなり指先を動かそうとするのではなく、まずは意識的な練習によって「肩甲骨そのものを動かす感覚」を引き出すことから着手。その上でテーブルを支持面として活用し、「まず肩甲骨の体重を乗せてテーブルを押す」→「次に肘をテーブルにつけて肘で押す」→「さらに手首で押す」と、力の起点（接地面）を中枢から末梢へ少しずつスライドさせながら、神経と力の伝達ルートを通す介入を継続。
-          </li>
-          <li>
-            <strong>身体変化に合わせた環境・張力の調整：</strong> 回復に伴う身体の角度や張力の変化（1〜3ヶ月スパン）に合わせてその場で微調整できるよう、壁に結びつけた手作りのゴム器具などを活用し、手の中に「ぐっと力が入る感覚（筋収縮）」を引き出す介入へ移行。
-          </li>
+      <div class="section-block">
+        <div class="section-label">背景</div>
+        <p>脳幹出血の後遺症により、起き上がりや歩行が困難な状態で、それまで縁のなかった丹波へ転居。もともとは友人も多く、楽しいことや人に喜んでもらうことが大好きな方であったが、慣れ親しんだ土地の友人たちと離れ、体も思うように動かない状況の中で、転居当初は寂しさに加え「周囲に迷惑をかけてしまうのではないか」という不安も大きかった。</p>
+      </div>
+
+      <div class="section-block">
+        <div class="section-label">経過と取り組み</div>
+        <ul>
+          <li><strong>生活範囲の拡大と地域との接点：</strong>家の中での機能訓練にとどまらず、「外の世界へ出て人と関わること」を看護の重要な視点として設定。まずは近隣の散策や挨拶から始め、無理のない範囲で行動範囲を広げた。立ち寄った地域の施設や喫茶店での自然な会話をきっかけに、顔見知りが少しずつ増えていった。</li>
+          <li><strong>自宅が「交流の場」へ：</strong>少しずつできることが増え、体力や歩行能力が回復するにつれて、心にもゆとりが生まれ始めた。ご本人の明るい人柄に惹かれるように近隣に気の合う知人ができ、自宅にお茶を飲みながら集まる自然な交流の場が生まれた。</li>
+          <li><strong>「動く体で、誰かに何かができる喜び」へ（転居から約1年半）：</strong>発症前とまったく同じ動きに戻ったわけではないが、現在の体のままでも自分らしく動き、地域の人々に向けたパン作りを始めるなど、「誰かを喜ばせたい」という本来の気質が自然と動き出した。自分の体が動くことそのもの以上に、「動くようになった体で人に何かができること」を喜びとし、「こちらへ来てよかった」と思える日々の中で、ご本人が中心となって周囲に人の輪が広がっている。</li>
         </ul>
       </div>
 
-      <div class="case-block">
-        <span class="case-block-title">現在の経過</span>
-        <p>
-          「お人形のように切り離された感覚だった左手」から、現在は「右手でヨーグルトを持たせると、こぼすことはあっても左手で保持できる」段階へ変化。本人の意識も「動かない手」から「左手に何をしてもらおうか」と生活の中で役割を考えられる状態へと大きく変化している。手の中に力が入る感覚が戻っているため、今後はそれを実際の動きへと繋げていくフェーズを見据えて伴走を継続中。
-        </p>
+      <div class="section-block">
+        <div class="section-label">視点の整理（看護・社会参加）</div>
+        <div class="theory-box">
+          在宅看護におけるリハビリテーションの目標は、発症前の身体機能への完全な復元のみではない。残存機能や環境調整によって日常生活動作（ADL）が安定し、心理的余裕が生じることで、受動的な「支援される役割」から能動的な「他者や地域に関わる役割（手段的日常生活動作：IADLおよび社会参加）」へと移行する。見知らぬ地域への転居後であっても、段階的な生活空間の拡大と地域資源との接点づくりを支援することで、本人の自己効力感と生活の質（QOL）の再構築が可能となる。一般に語られる「寄り添う看護」とは、支援者が主導して何かを与えることではなく、その人が本来やりたいことや気質を丁寧に汲み取り、現実の生活の中へ無理なく落とし込んでいく実践を指すのではないだろうか。
+        </div>
       </div>
 
-      <div class="ref-box">
-        <span class="ref-label">関連する運動学・理論の検索ワード（コピペ用）</span>
-        <p style="font-size: 0.88rem;">
-          中枢から末梢への連鎖・支持面反力：<span class="query-chip">Putnam CA Sequential motions of body segments 1993</span> / <span class="query-chip">閉鎖性運動連鎖 CKC</span>
-        </p>
+      <div class="chips-area">
+        <span class="chips-label">関連知見検索:</span>
+        <a class="chip" href="https://scholar.google.com/scholar?q=在宅リハビリテーション+社会参加+IADL+自己効力感" target="_blank" rel="noopener">IADLと社会参加の再構築</a>
+        <a class="chip" href="https://scholar.google.com/scholar?q=地域包括ケア+社会的孤立+役割創出" target="_blank" rel="noopener">地域における役割創出とQOL</a>
       </div>
     </article>
 
     <!-- CASE 03 -->
-    <article id="case-03" class="case-card">
+    <article class="case-card">
       <div class="case-header">
-        <span class="case-badge">CASE 03</span>
-        <span class="case-category">訪問看護・リハビリテーション</span>
-      </div>
-      <h3 class="case-title">脳梗塞後の片麻痺歩行：足先だけでなく「肩甲骨・体幹の回旋と重心移動」から歩容を再構築</h3>
-
-      <div class="case-block">
-        <span class="case-block-title">対象・介入前の状態</span>
-        <p>
-          脳梗塞後遺症による左片麻痺。すでに屋内・屋外ともに歩行自体は可能になっており、つま先の引っかかりや足を外側から大きく回す（分回し）動きも解消していたが、硬くぎこちない歩き方が残っていた。観察すると、転倒への無意識な防御反応から左の肩甲骨周囲やみぞおち（体幹部）に力みが残り、上半身と骨盤の回旋（ねじれ）の連動が止まりやすい状態になっていた。また、左足裏への感覚入力が鈍いため、体重を預けきる前に急いで右足を出す左右非対称なリズムが見られた。
-        </p>
+        <div class="case-meta">
+          <span class="case-number">CASE 03</span>
+          <span class="case-category">訪問看護（医療・介護保険）／ 上肢・手指機能の再統合</span>
+        </div>
+        <h2 class="case-title">発症から3年経過した麻痺側上肢が、再び日常の「役割を持つ手」として戻った経過</h2>
       </div>
 
-      <div class="case-block">
-        <span class="case-block-title">おむすび訪問看護ステーションの関わり（事実）</span>
-        <p>
-          一般的な下肢の運動や歩行練習も踏まえつつ、この方の場合は末端（足先）の動かし方を直接修正することよりも、全身の運動連鎖と重心の流れを整えることが鍵になると判断し、以下の視点で介入を実施。
-        </p>
-        <ul class="case-list">
-          <li>
-            <strong>肩甲帯と体幹のロック解除：</strong>固まっていた左肩甲骨の可動性を引き出し、みぞおちから骨盤へつながる自然な回旋の余白を作るケアを実施。
-          </li>
-          <li>
-            <strong>重心移動と運動回路の再入力：</strong>上半身の緊張が抜けた状態で、左足裏全体に安心して重心を預けられる感覚を脳に再学習させ、歩行のエンジンを「足だけの力み」から「肩甲骨と腰が連動する全身運動」へと切り替えるアプローチを継続。
-          </li>
+      <div class="section-block">
+        <div class="section-label">背景・初期状態</div>
+        <p>脳血管障害後、約3年が経過。麻痺側の上肢は緊張が高く、本人も「自分の手ではないよう（お人形のような手）」と表現し、日常生活の中でほとんど使用されない学習性不使用の状態にあった。</p>
+      </div>
+
+      <div class="section-block">
+        <div class="section-label">介入と身体変化のプロセス</div>
+        <ul>
+          <li><strong>末端ではなく中枢（肩甲帯・体幹）からのアプローチ：</strong>固まった指先を無理に開くのではなく、肩甲骨の可動性と体幹からの軸圧（骨を通じた支持感覚）を丁寧に再入力。</li>
+          <li><strong>両手動作への組み込み：</strong>カップやヨーグルトの容器を「押さえる・支える」といった具体的な生活動作の中で、視覚と触覚を一致させながら麻痺側上肢の参加を促した。</li>
+          <li><strong>経過：</strong>過緊張が緩和し、生活の中で自然と麻痺側の手が補助手として機能する場面が増加した。</li>
         </ul>
       </div>
 
-      <div class="case-block">
-        <span class="case-block-title">現在の経過</span>
-        <p>
-          肩甲骨の可動性が引き出されたことで上半身と体幹の緊張が緩み始め、現在はその新しい全身の連動パターンを脳の運動回路として定着させる段階へ移行している。足先だけの働きかけでは越えられなかった歩容のぎこちなさが抜け、重心のつながりを活かした滑らかな歩行へと変化しつつある。
-        </p>
+      <div class="section-block">
+        <div class="section-label">視点の整理（神経可塑性・運動連鎖）</div>
+        <div class="theory-box">
+          発症後数年が経過した慢性期であっても、学習性不使用（Learned Non-use）の背景にある過剰な防御性収縮を解き、肩甲帯からの運動連鎖と感覚フィードバックを再接続することで、実用的な生活動作への再参加は十分に引き出せる。
+        </div>
       </div>
 
-      <div class="ref-box">
-        <span class="ref-label">関連する運動学・理論の検索ワード（コピペ用）</span>
-        <p style="font-size: 0.88rem;">
-          受動歩行・振り子運動・重心移動：<span class="query-chip">McGeer T Passive dynamic walking 1990</span> / <span class="query-chip">アナトミー トレイン</span>
-        </p>
+      <div class="chips-area">
+        <span class="chips-label">関連知見検索:</span>
+        <a class="chip" href="https://scholar.google.com/scholar?q=学習性不使用+慢性期脳卒中+上肢機能" target="_blank" rel="noopener">学習性不使用 (Learned Non-use)</a>
+        <a class="chip" href="https://scholar.google.com/scholar?q=肩甲帯+上肢運動連鎖+リハビリテーション" target="_blank" rel="noopener">肩甲帯と上肢の運動連鎖</a>
       </div>
     </article>
 
     <!-- CASE 04 -->
-    <article id="case-04" class="case-card">
+    <article class="case-card">
       <div class="case-header">
-        <span class="case-badge">CASE 04</span>
-        <span class="case-category">訪問看護・リハビリテーション</span>
-      </div>
-      <h3 class="case-title">左上肢麻痺の連動再構築：「肩甲骨から指先までの軸圧伝達」と虫様筋を起点にした手指の解放</h3>
-
-      <div class="case-block">
-        <span class="case-block-title">対象・介入前の状態</span>
-        <p>
-          脳梗塞後遺症による左片麻痺。肩・肘・手首の関節それぞれは動くものの、各関節が「部分（パーツ）」としてバラバラに動くため、テーブルを拭くような日常動作がぎこちない状態だった。また、手指は握り込む（グー）方向への出力が過剰に働き、関節の拘縮ではないものの、自分の意思で指を開くことが難しい状態が続いていた。
-        </p>
+        <div class="case-meta">
+          <span class="case-number">CASE 04</span>
+          <span class="case-category">訪問看護（医療・介護保険）／ 体幹と歩行バランス</span>
+        </div>
+        <h2 class="case-title">筋力低下と転倒不安による歩行制限に対し、重心移動の効率化で安定性を取り戻した事例</h2>
       </div>
 
-      <div class="case-block">
-        <span class="case-block-title">おむすび訪問看護ステーションの関わり（事実）</span>
-        <p>
-          標準的な関節可動域訓練や上肢の運動も踏まえつつ、この方の場合は各関節をバラバラに動かす従来の運動パターンから、一本のつながりとして意識的に連動させる回路へ切り替えることが早道と判断し、以下の具体的な手順で介入を実施。
-        </p>
-        <ul class="case-list">
-          <li>
-            <strong>【第1段階】末端からの軸圧入力による運動連鎖の接続：</strong>支援者が片手で利用者の親指と手のひらを保持し、もう片方の手を肩甲骨周辺に軽く添える。親指の先から手首方向へ向かって軽く押し込む（軸圧をかける）ことで、親指の根元・手首・肘・肩へと物理的な力が一本の線として伝わる状態を意図的に作り出し、肩甲骨側の手でその伝達を確認しながら身体に「つながりの感覚」を再入力。
-          </li>
-          <li>
-            <strong>【第2段階】支持面（テーブル）を使った中枢からの段階的出力：</strong>つながりの感覚を掴んだ後、立位または座位でテーブルの上に手のひらを置き、経験任せの無意識な動作ではなく原理原則の順番で力を伝える練習を実施。「まず肩甲骨を軸に体重を乗せて押す」→「次に肘まわりに力を入れて押す」→「さらに手首に力を入れて押す」と意識の起点を上から下へ順番にスライドさせ、最終段階として手のひら・虫様筋から指先へ力を繋げる運動回路の定着を図っている。
-          </li>
-          <li>
-            <strong>前腕の過剰出力の調整と虫様筋からの連動：</strong>指を動かす主な筋肉（前腕の屈筋群など）の認識・張力のズレにより握り込みが強くなっている点に着目。指先だけを無理に伸ばそうとするのではなく、手首の位置関係を整えた上で、手のひらの中にある虫様筋（手内筋）を働かせて指先へ力を繋げる視点から介入を継続。
-          </li>
+      <div class="section-block">
+        <div class="section-label">背景・初期状態</div>
+        <p>加齢および疾患に伴う下肢筋力低下とバランス障害により、屋内移動でも転倒リスクが高い状態。歩幅が狭く、常に体幹を固めて慎重に歩くため疲労が強く、活動量が低下していた。</p>
+      </div>
+
+      <div class="section-block">
+        <div class="section-label">介入と身体変化のプロセス</div>
+        <ul>
+          <li><strong>「踏ん張る歩行」からの脱却：</strong>下肢の筋力で体を持ち上げる歩き方から、上半身の重みを骨盤・足底へ真っ直ぐ乗せる重心移動の調整を実施。</li>
+          <li><strong>立脚期の安定化：</strong>足裏全体で床面を捉える感覚と、股関節周囲の連動性を高めることで、歩行時の左右へのふらつきが減少。</li>
+          <li><strong>経過：</strong>連続歩行距離が延長し、転倒への過度な恐怖心が軽減したことで日中の活動量が向上した。</li>
         </ul>
       </div>
 
-      <div class="case-block">
-        <span class="case-block-title">現在の経過</span>
-        <p>
-          親指からの軽い押し込みによって肩甲骨までのつながりを物理的にガイドしたことで、介入開始から1週間足らず（2〜3回の介入）で本人が「腕全体がつながって動く感覚」を掴み、テーブルを拭く動作のぎこちなさが抜けてスムーズに動かせるようになった。現在は次の段階として、手首と虫様筋の連動から指先へ繋げる感覚を定着させ、過剰な握り込みを解いて自然に指を開ける動きの獲得に向けて伴走している。
-        </p>
+      <div class="section-block">
+        <div class="section-label">視点の整理（バイオメカニクス・重心制御）</div>
+        <div class="theory-box">
+          歩行の安定性は下肢の絶対的な筋力のみに依存しない。頭頸部・胸郭・骨盤の配列を整え、支持基底面内での重心移動（COP/COM制御）を効率化することで、少ないエネルギーで安定した歩容が実現する。
+        </div>
       </div>
 
-      <div class="ref-box">
-        <span class="ref-label">関連する運動学・理論の検索ワード（コピペ用）</span>
-        <p style="font-size: 0.88rem;">
-          軸圧と固有受容感覚の促通：<span class="query-chip">Dillman CJ Biomechanical differences of open and closed chain exercises shoulder 1994</span> / <span class="query-chip">Riemann BL sensorimotor system joint stability 2002</span>
-        </p>
+      <div class="chips-area">
+        <span class="chips-label">関連知見検索:</span>
+        <a class="chip" href="https://scholar.google.com/scholar?q=歩行+重心移動+COP+COM+バランス" target="_blank" rel="noopener">歩行における重心制御 (COP/COM)</a>
+        <a class="chip" href="https://scholar.google.com/scholar?q=閉鎖性運動連鎖+CKC+立位バランス" target="_blank" rel="noopener">閉鎖性運動連鎖 (CKC)</a>
       </div>
     </article>
 
     <!-- CASE 05 -->
-    <article id="case-05" class="case-card">
+    <article class="case-card">
       <div class="case-header">
-        <span class="case-badge">CASE 05</span>
-        <span class="case-category">保険外（自費）ボディワーク</span>
-      </div>
-      <h3 class="case-title">糖尿病の感覚神経麻痺による立位のふらつき：体に染み付いた動作から「体の中と外の軸」を引き出すアプローチ</h3>
-
-      <div class="case-block">
-        <span class="case-block-title">対象・来店時の状態（医療との明確な線引き）</span>
-        <p>
-          70代男性（保険外ボディワークのご利用者）。糖尿病による末梢神経障害（感覚神経麻痺）により手足の感覚が著しく鈍くなっており、自宅内では転倒予防のため車椅子を使用。過去に切断を勧められた経緯もあり、来店時は全身が強く緊張して硬直し、足裏で地面を捉える感覚が薄いため普通に立つだけでもふらつきが見られる状態だった（※糖尿病そのものの治療・食事管理は主治医・医療機関の領域として完全に委ねており、本施術は身体の緊張緩和と動作の拠り所づくりを目的とした保険外ボディワークとして実施）。
-        </p>
+        <div class="case-meta">
+          <span class="case-number">CASE 05</span>
+          <span class="case-category">訪問看護（医療・介護保険）／ 巧緻性と上肢の連動</span>
+        </div>
+        <h2 class="case-title">手指の動かしにくさと上肢の疲労感に対し、体幹からの力の伝達経路を再構築した事例</h2>
       </div>
 
-      <div class="case-block">
-        <span class="case-block-title">現場で起きた変化と身体操作の仕組み</span>
-        <p>
-          全身の筋緊張を丁寧に緩めた後、この方が過去に人に教えられるレベル（80切り・元シングル級）まで打ち込んでいた「ゴルフ」の動作に着目。その場で軽く素振りをしてもらったところ、さっきまで普通に立つだけで不安定だった身体が<strong>バシッと安定し、腕を振っても一切ブレない立ち姿</strong>へと変化した。その身体構造を観察すると、感覚の鈍った足裏で無理に踏ん張るのではなく、以下の2つの軸で身体を支えていた。
-        </p>
-        <ul class="case-list">
-          <li>
-            <strong>まず「体の中」に軸を作る（首の根元の吊り点）：</strong>体全体が「みかんのネット」に包まれており、そのネットの結び目が首の根元にあるような構造。足裏の感覚が薄くても、まず体の中の「首の根元」に1つ拠り所（軸）を作ることで、そこから全身がぶら下がるように張力が整い安定する。
-          </li>
-          <li>
-            <strong>さらに「体の外側」にも軸を作る（クラブの先のボール）：</strong>手ぶらでの素振りであっても、クラブヘッドの軌道とその先にある「ボール（インパクトの場所）」という具体的な的が体の外側に設定されていた。体の中の軸（首の根元）と体の外側の軸（ボール）が一本の線で結ばれることで、壊れた足裏センサーに頼らずに全身のバランスがロックされる。
-          </li>
-          <li>
-            <strong>足の骨格イメージの上書き（補足）：</strong>足裏の感覚入力が乏しい場合、見た目で認識している指の位置と実際の関節（足の甲の奥にあるMP関節など）のズレが動作を不安定にするため、足の骨模型を用いて「本当の関節の位置」を頭の中で上書きするイメージ共有も併用。
-          </li>
+      <div class="section-block">
+        <div class="section-label">背景・初期状態</div>
+        <p>神経・筋疾患の影響により、箸の使用や書字、ボタン操作などの細かい手指動作に困難さがあり、少しの作業で前腕や肩に強い疲労が生じる状態であった。</p>
+      </div>
+
+      <div class="section-block">
+        <div class="section-label">介入と身体変化のプロセス</div>
+        <ul>
+          <li><strong>末梢の代償動作の解除：</strong>指先だけで力を入れようとする代償パターンを見直し、胸郭の柔軟性と肩甲骨の安定性を確保。</li>
+          <li><strong>運動連鎖の最適化：</strong>体幹・肩甲帯で腕の重さを支えられる状態を作ることで、前腕から指先にかけての過剰な緊張が抜け、スムーズな屈伸・把持動作が可能となった。</li>
+          <li><strong>経過：</strong>食事や整容などの日常動作における疲労感が軽減し、自立度が向上した。</li>
         </ul>
       </div>
 
-      <div class="case-block">
-        <span class="case-block-title">実践のヒント（言語化による日常動作への応用）</span>
-        <p>
-          ゴルフ・野球・テニス・仕事など、長年の練習で何千回と繰り返して身体に染み付いた動作の中には、単調な訓練では作れない高度な身体連動がすでに眠っている。感覚障害や加齢で足元の拠り所を失った場合でも、自分が得意とする動きの中にある<strong>「体の中の軸（どこを支えにしているか）」</strong>と<strong>「体の外の軸（どこに的やゴールを置いているか）」</strong>を探し出して言語化することで、無意識の身体記憶を普段の「立つ・歩く」動作へと応用することが可能になる。
-        </p>
+      <div class="section-block">
+        <div class="section-label">視点の整理（近位安定性と遠位可動性）</div>
+        <div class="theory-box">
+          「近位の安定性が遠位の自由な可動性を生む（Proximal Stability for Distal Mobility）」という原則に基づき、体幹・肩甲帯の支持機能を整えることが、結果として手指の巧緻性改善に直結する。
+        </div>
       </div>
 
-      <div class="ref-box">
-        <span class="ref-label">関連する運動学・理論の検索ワード（コピペ用）</span>
-        <p style="font-size: 0.88rem;">
-          内的焦点と外的焦点（注意の焦点理論）：<span class="query-chip">Wulf G Instructions for motor learning differential effects of internal versus external focus of attention 1998</span> / <span class="query-chip">内的焦点 外的焦点 バランス</span>
-        </p>
+      <div class="chips-area">
+        <span class="chips-label">関連知見検索:</span>
+        <a class="chip" href="https://scholar.google.com/scholar?q=近位安定性+遠位可動性+手指巧緻性" target="_blank" rel="noopener">近位安定性と遠位可動性</a>
+        <a class="chip" href="https://scholar.google.com/scholar?q=代償動作+上肢機能+リハビリテーション" target="_blank" rel="noopener">代償動作の抑制と運動学習</a>
       </div>
     </article>
 
-    <footer class="site-footer">
-      <p>おむすび訪問看護ステーション｜対応エリア：兵庫県丹波市周辺</p>
-      <p>※掲載している事例はすべて実際の介入記録に基づいていますが、個人情報保護のため一部表現を調整しています。</p>
-    </footer>
-  </div>
+    <!-- CASE 06 -->
+    <article class="case-card">
+      <div class="case-header">
+        <div class="case-meta">
+          <span class="case-number">CASE 06</span>
+          <span class="case-category">自費ボディワーク（保険外実践）／ 感覚障害と空間軸の再構築</span>
+        </div>
+        <h2 class="case-title">足底の感覚喪失と下肢切断の提案を受けた状態から、独自の身体軸を呼び覚まし立位・歩行を維持した記録</h2>
+      </div>
+
+      <div class="section-block">
+        <div class="section-label">背景・初期状態</div>
+        <p>重度の血行障害および神経障害により足底の感覚が著しく低下し、医療機関からは下肢切断の選択肢も提示されていた状態。足裏で地面を感じられないため立位保持が極めて不安定であり、制度の枠を超えた身体アプローチを希望され自費ボディワークとして介入を開始。</p>
+      </div>
+
+      <div class="section-block">
+        <div class="section-label">介入と身体変化のプロセス</div>
+        <ul>
+          <li><strong>足裏の感覚に頼らない「軸」の再構築：</strong>失われた足底感覚を無理に補おうとするのではなく、長年親しんでいたゴルフの構えやスイングの身体記憶を手がかりに、体幹の中心を通る「内の軸」と空間との位置関係を捉える「外の軸」を再設定。</li>
+          <li><strong>骨格イメージの上書き：</strong>筋力で固めて立つのではなく、骨格の配列によって重力を地面へ逃がす身体イメージへ上書きすることで、足底の感覚低下があっても揺れの少ない安定した立位を獲得。</li>
+          <li><strong>経過：</strong>自力での安定した立位と歩行機能を維持し、日常生活を継続している。</li>
+        </ul>
+      </div>
+
+      <div class="section-block">
+        <div class="section-label">視点の整理（ボディスキーマ・感覚代行）</div>
+        <div class="theory-box">
+          末梢の体性感覚入力が制限された状況下においても、前庭感覚・視覚・および過去の熟練動作に根ざした身体図式（ボディスキーマ）を再統合することで、重力環境下での姿勢制御と立位バランスを再構築することが可能である。
+        </div>
+      </div>
+
+      <div class="chips-area">
+        <span class="chips-label">関連知見検索:</span>
+        <a class="chip" href="https://scholar.google.com/scholar?q=身体図式+ボディスキーマ+姿勢制御" target="_blank" rel="noopener">身体図式 (Body Schema)</a>
+        <a class="chip" href="https://scholar.google.com/scholar?q=感覚障害+姿勢制御+前庭感覚+体性感覚" target="_blank" rel="noopener">感覚再重み付けと姿勢制御</a>
+      </div>
+    </article>
+
+  </main>
+
+  <footer>
+    &copy; おむすび訪問看護ステーション All Rights Reserved.
+  </footer>
+
 </body>
 </html>
